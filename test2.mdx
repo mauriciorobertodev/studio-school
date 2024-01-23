@@ -1,0 +1,24 @@
+# titulo
+texto
+
+1. lista
+2. lista
+3. lista
+4. lista
+
+
+```ts {4-5} showLineNumbers
+import mdx from '@astrojs/mdx';
+import tailwind from '@astrojs/tailwind';
+import { defineConfig } from 'astro/config';
+import rehypePrettyCode from 'rehype-pretty-code';
+import moonlightTheme from './public/theme/moonlight-ii.json';
+
+export default defineConfig({
+  markdown: {
+    syntaxHighlight: false, // must be set to false
+    rehypePlugins: [[rehypePrettyCode, { theme: moonlightTheme }]],
+  },
+  integrations: [mdx(), tailwind()],
+});
+```
